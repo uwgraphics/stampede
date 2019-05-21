@@ -48,5 +48,8 @@ Using the stampede solver involves three steps:
 
 time;ee_goal_position.x,ee_goal_position.y,ee_goal_position.z;ee_goal_quaternion.w,ee_goal_quaternion.x,ee_goal_quaternion.y,ee_goal_quaternion.z
 
+Here, time corresponds to the time point (in seconds) that the robot should pass through the corresponding end effector pose goal, and ee_goal_position.[] and ee_goal_quaternion.[] correspond to the position and orientation goal components that the end-effector should try to achieve at that time.  NOTE: the position and orientation goals are represented RELATIVE to the initial state specified in the robot info file in the relaxed_ik package.  For example, a position goal of [0,0,0] and orientation goal of [1,0,0,0] would correspond to the robot's end-effector exhibiting the same pose as the robot's end-effector in its initial state.
+
+2. 
 
 
