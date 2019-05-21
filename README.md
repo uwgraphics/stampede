@@ -68,6 +68,17 @@ The parameters in this file are:
 
 *scaling_factor (this value uniformly scales up the trajectory points specfieid in step 2 above.  Note that this scaling only applies to the position goals and not the orientation goals)
 
+The solver takes about 30 seconds to three minutes to find the best solution.  This time depends on how many paths the solver deems are still worth keeping active throughout the global optimization process.  Also, keep in mind that the solver is written in the Julia programming language, which currently takes a little while (~20 seconds) for the solver to start. Julia code is VERY fast once it starts up, but it takes a bit of overhead time to do its JIT compilation.  Unfortunately, there's little we can do at this point to eliminate this JIT compilation time the first time the solver starts up (though, we are hoping compilation times get better in general in future versions of the Julia programming language!).  We'll also keep looking into ways to get around this issue in the meantime.
+
+Note that Stampede may determine that no solution exists to the current pathwise-IK problem.  If this is the case, the solver will print that no solution is found, and output the best partial trajectory.
+
+4. Finally, the solver outputs its solution in the Stampede/OutputMotions folder in the file last_trajectory.stampede.  This file will be overwritten on every solve, so make sure to rename this file if you'd like to save a trajectory for later use!  To play back the trajectory in rviz, use the following command:
+
+<pre> roslaunch stampede play_trajectory.launch  </pre>
+
+By default, this will play the file last_trajectory.stampede.  However, if you'd like to play another trajectory file in the OutputMotions folder, just set the trajectory_name argument in the launch file to the desired trajectory name.
+
+
 
 
 
