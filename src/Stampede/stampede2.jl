@@ -39,7 +39,7 @@ function StampedeObj(relaxedIK, baseIK, pos_goals, quat_goals, duration; pos_tol
     return StampedeObj(relaxedIK, baseIK, num_time_points, num_dof, pos_goals, quat_goals, times, pos_tol, rot_tol, solution_graph, min_vel_score_graph, minmax_vel_score_graph, num_nodes_in_layers, predecessor_graph, active_nodes)
 end
 
-function solve(stampede; max_stay_idx = 100, neighborhood_rad = 4.)
+function solve(stampede; max_stay_idx = 7, neighborhood_rad = 4.)
     println("initializing layers...")
     populate_layer(stampede, 1, max_stay_idx=max_stay_idx)
 

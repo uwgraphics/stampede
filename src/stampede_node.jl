@@ -32,7 +32,7 @@ end
 relaxedIK = get_standard(relaxedik_path, loaded_robot)
 baseIK = get_base_ik(relaxedik_path, loaded_robot)
 
-s = StampedeObj(relaxedIK, baseIK, pos_goals, quat_goals, 25.0)
+s = StampedeObj(relaxedIK, baseIK, pos_goals, quat_goals, 15.0)
 traj = solve(s)
 
 fp = path_to_src * "/Stampede/OutputMotions/last_trajectory.stampede"
