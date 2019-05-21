@@ -25,3 +25,20 @@ If you use our solver, please cite our ICRA paper STAMPEDE: A Discrete-Optimizat
   organization={IEEE}
 }
 </pre>
+
+
+<b> Dependencies </b>
+
+Before going through the tutorial steps below, ensure that all of these dependencies are installed!
+
+In order to use the Stampede solver, you will first need to install our inverse kinematics solver called RelaxedIK, as well as install all of its dependencies.  The RelaxedIK solver can be found here: https://github.com/uwgraphics/relaxed_ik .  The dependencies for RelaxedIK can be found in the dependencies section in the README.
+
+NOTE: At the present time of writing this setup guide, the current compatible version of RelaxedIK is on the dev branch NOT the master branch.  To install the dev branch version of RelaxedIK, use the following command:
+
+<pre> git clone -b dev https://github.com/uwgraphics/relaxed_ik.git </pre>
+
+
+<b> Tutorial </b>
+
+
+
