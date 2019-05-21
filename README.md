@@ -12,3 +12,16 @@ To start using the solver, please follow the step-by-step instructions down belo
 If anything with the solver is not working as expected, or if you have any feedback, feel free to let us know! (email: rakita@cs.wisc.edu, website: http://pages.cs.wisc.edu/~rakita)
 We are actively supporting and extending this code, so we are interested to hear about how the solver is being used and any positive or negative experiences in using it.
 
+<b> Citation </b>
+
+If you use our solver, please cite our ICRA paper STAMPEDE: A Discrete-Optimization Method for Solving Pathwise-Inverse Kinematics
+
+<pre>
+@inproceedings{rakita2019,
+  title={Stampede: A Discrete-Optimization Method for Solving Pathwise-Inverse Kinematics},
+  author={Rakita, Daniel and Mutlu, Bilge and Gleicher, Michael},
+  booktitle={IEEE International Conference on Robotics and Automation (ICRA)},
+  year={2019},
+  organization={IEEE}
+}
+</pre>
