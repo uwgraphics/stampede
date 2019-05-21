@@ -80,6 +80,7 @@ By default, this will play the file last_trajectory.stampede.  However, if you'd
 
 
 <b> Coming Soon </b>
+
 This code was just released on May 21, 2019 as part of the presentation of the corresponding paper at the ICRA conference.  If you experience any bugs, please let me know!  I will likely be updating the code daily during this code roll-out, so feel free to check back as any bugs are ironed out or new features are added in.  
 
 If you have feedback based on your experience using the solver (positive or negative), please email me at rakita@cs.wisc.edu.  Thanks!
