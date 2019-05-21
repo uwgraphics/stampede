@@ -79,6 +79,10 @@ Note that Stampede may determine that no solution exists to the current pathwise
 By default, this will play the file last_trajectory.stampede.  However, if you'd like to play another trajectory file in the OutputMotions folder, just set the trajectory_name argument in the launch file to the desired trajectory name.
 
 
+<b> Coming Soon </b>
+This code was just released on May 21, 2019 as part of the presentation of the corresponding paper at the ICRA conference.  If you experience any bugs, please let me know!  I will likely be updating the code daily during this code roll-out, so feel free to check back as any bugs are ironed out or new features are added in.  
+
+If you have feedback based on your experience using the solver (positive or negative), please email me at rakita@cs.wisc.edu.  Thanks!
 
 
 
