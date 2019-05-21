@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+   <arg name="robot_info_file" default="" />
+   <arg name="input_motion_file" default="square" />
+   <arg name="scaling_factor" default="1.0" />
+
+<!-- ##################################################################################### -->
+
+   <param name="robot_info_file" value="$(arg robot_info_file)"/>
+   <param name="input_motion_file" value="$(arg input_motion_file)"/>
+   <param name="scaling_factor" value="$(arg scaling_factor)"/>
+   <node pkg="stampede" type="stampede_node.jl" name="stampede_node" output="screen"/>
+</launch>

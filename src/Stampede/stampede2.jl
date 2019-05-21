@@ -39,7 +39,19 @@ function StampedeObj(relaxedIK, baseIK, pos_goals, quat_goals, duration; pos_tol
     return StampedeObj(relaxedIK, baseIK, num_time_points, num_dof, pos_goals, quat_goals, times, pos_tol, rot_tol, solution_graph, min_vel_score_graph, minmax_vel_score_graph, num_nodes_in_layers, predecessor_graph, active_nodes)
 end
 
-function solve(stampede)
+function solve(stampede; max_stay_idx = 100, neighborhood_rad = 4.)
+    println("initializing layers...")
+    populate_layer(stampede, 1, max_stay_idx=max_stay_idx)
+
+    for i = 2:stampede.num_time_points
+        valid = gallop_to_next_layer(stampede, i)
+        if ! valid
+            println("no solution found, returning best trajectory to timepoint $(i-1)")
+            return get_best_min_vel_trajectory(stampede, end_layer = i - 2)
+        end
+    end
+
+    return get_best_min_vel_trajectory(stampede)
 end
 
 function initialize_layers(stampede)
@@ -107,7 +119,7 @@ function get_number_of_layer_clusters(stampede, layer_idx; neighborhood_rad = 0.
     end
 end
 
-function populate_layer(stampede, layer_idx; max_stay_idx = 50)
+function populate_layer(stampede, layer_idx; max_stay_idx = 6)
     prev_num_clusters = 1
     stay_idx = 1
     try_idx = 1
@@ -150,8 +162,12 @@ function populate_all_layers(stampede; max_stay_idx = 6)
 end
 
 function gallop_to_next_layer(stampede, layer_idx)
-    prev_layer_solutions = get_solutions_in_layer(stampede, layer_idx - 1)
     prev_layer_num_solutions = stampede.num_nodes_in_layers[layer_idx - 1]
+    if prev_layer_num_solutions == 0
+        return false
+    end
+    prev_layer_solutions = get_solutions_in_layer(stampede, layer_idx - 1)
+
     for i = 1:prev_layer_num_solutions
         prev_sol = prev_layer_solutions[i,:]
         xopt, valid_sol, in_collision = get_solution(stampede, layer_idx, prev_state = prev_sol)
@@ -172,6 +188,7 @@ function gallop_to_next_layer(stampede, layer_idx)
             end
         end
     end
+    return true
 end
 
 function get_best_minmax_vel_trajectory(stampede; end_layer = 0)

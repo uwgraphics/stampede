@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+   <include file="$(find relaxed_ik)/launch/rviz_viewer_no_pub.launch"/>
+</launch>

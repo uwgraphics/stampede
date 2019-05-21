@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+   <arg name="trajectory_name" default="" />
+
+<!-- ##################################################################################### -->
+
+   <param name="trajectory_name" value="$(arg trajectory_name)"/>
+   <node pkg="stampede" type="start_rviz_viewer.py" name="start_rviz_viewer" output="screen"/>
+   <node pkg="stampede" type="play_trajectory.py" name="play_trajectory" output="screen"/>
+</launch>

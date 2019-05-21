@@ -7,7 +7,7 @@ function get_ik_task(path_to_src, task_name; scaling_factor=1.0)
     pos_goals = []
     quat_goals = []
 
-    f = open(path_to_src * "/Stampede/FileIO/task_recordings/" * task_name, "r")
+    f = open(path_to_src * "/Stampede/InputMotions/" * task_name, "r")
 
     line = readline(f)
     while line != ""

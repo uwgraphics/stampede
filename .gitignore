@@ -118,3 +118,8 @@ test*.*
 *.xml
 *.iml
 *.rviz
+
+relaxedik_path
+icraFollow
+circle
+
