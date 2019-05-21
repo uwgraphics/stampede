@@ -42,14 +42,32 @@ NOTE: At the present time of writing this setup guide, the current compatible ve
 
 Before following the steps in this tutorial, please ensure that all of these dependencies listed above are installed!
 
-Using the stampede solver involves three steps:
+Using the stampede solver involves four steps:
 
-1. First, we have to specify the end-effector path that the robot should try to follow.  To do this, place a file in the Stampede/InputMotions folder with the following format:
+1. First, run the following command:
+<pre> rosrun stampede create_relaxedik_path.py  </pre>
+
+This will create a file in the Stampede/Config folder called relaxedik_path that will contain the path to the relaxed_ik package src folder.  Note that this step only has to be done once.  Once this file is in place on your system, it does not have to be created again (unless the relaxed_ik package is moved).  
+
+
+2. Next, we have to specify the end-effector path that the robot should try to follow.  To do this, place a file in the Stampede/InputMotions folder with the following format:
 
       time;ee_goal_position.x,ee_goal_position.y,ee_goal_position.z;ee_goal_quaternion.w,ee_goal_quaternion.x,ee_goal_quaternion.y,ee_goal_quaternion.z
 
   Here, time corresponds to the time point (in seconds) that the robot should pass through the corresponding end effector       pose goal, and ee_goal_position.[] and ee_goal_quaternion.[] correspond to the position and orientation goal components       that the end-effector should try to achieve at that time.  NOTE: the position and orientation goals are represented           RELATIVE to the initial state specified in the robot info file in the relaxed_ik package.  For example, a position goal of   [0,0,0] and orientation goal of [1,0,0,0] would correspond to the robot's end-effector exhibiting the same pose as the       robot's end-effector in its initial state.
 
-2. Next, 
+3. Next, set the relevant parameters in the stampede.launch folder (in the launch folder at the top level of the package), and start the solver using the following command:
+
+<pre> roslaunch stampede stampede.launch  </pre>
+
+The parameters in this file are:
+-robot_info_file  (this corresponds to the info_file_name for a particular robot platform set up in the relaxed_ik pacakage)
+-input_motion_file  (this correspond to the name of the task file specified in step 2 above)
+-scaling_factor (this value uniformly scales up the trajectory points specfieid in step 2 above.  Note that this scaling only applies to the position goals and not the orientation goals)
+
+
+
+
+
 
 
