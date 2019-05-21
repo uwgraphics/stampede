@@ -62,11 +62,11 @@ This will create a file in the Stampede/Config folder called relaxedik_path that
 
 The parameters in this file are:
 
-**robot_info_file  (this corresponds to the info_file_name for a particular robot platform set up in the relaxed_ik pacakage)
+*robot_info_file  (this corresponds to the info_file_name for a particular robot platform set up in the relaxed_ik pacakage)
 
-**input_motion_file  (this correspond to the name of the task file specified in step 2 above)
+*input_motion_file  (this correspond to the name of the task file specified in step 2 above)
 
-**scaling_factor (this value uniformly scales up the trajectory points specfieid in step 2 above.  Note that this scaling only applies to the position goals and not the orientation goals)
+*scaling_factor (this value uniformly scales up the trajectory points specfieid in step 2 above.  Note that this scaling only applies to the position goals and not the orientation goals)
 
 
 
