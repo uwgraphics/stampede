@@ -40,5 +40,13 @@ NOTE: At the present time of writing this setup guide, the current compatible ve
 
 <b> Tutorial </b>
 
+Before following the steps in this tutorial, please ensure that all of these dependencies listed above are installed!
+
+Using the stampede solver involves three steps:
+
+1. First, we have to specify the end-effector path that the robot should try to follow.  To do this, place a file in the Stampede/InputMotions folder with the following format:
+
+time;ee_goal_position.x,ee_goal_position.y,ee_goal_position.z;ee_goal_quaternion.w,ee_goal_quaternion.x,ee_goal_quaternion.y,ee_goal_quaternion.z
+
 
 
